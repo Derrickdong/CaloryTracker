@@ -1,0 +1,4 @@
+#Sun May 19 23:36:24 AEST 2019
+base.0=C\:\\Users\\xdon0010\\Desktop\\Mobile\\applications\\CaloryTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\2
+path.0=classes.dex
+renamed.0=classes.dex

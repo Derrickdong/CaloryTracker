@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin"
+    tools:context=".StepCounter">
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="187dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="Total steps today: "
+        tools:layout_editor_absoluteX="36dp" />
+
+    <TextView
+        android:id="@+id/tv_walkMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_text"
+        android:layout_marginTop="4dp"
+        android:text="Walked more: " />
+
+    <EditText
+        android:id="@+id/et_steps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_editview"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_marginLeft="13dp"
+        android:layout_toRightOf="@id/tv_walkMore"
+        android:layout_below="@+id/tv_text"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_add"
+        android:text="Add"
+        android:layout_below="@+id/tv_walkMore"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_records"
+        android:layout_below="@+id/btn_add"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_nextDay"
+        android:text="Next Day"
+        android:layout_below="@+id/tv_records"/>
+</RelativeLayout>

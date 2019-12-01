@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Report for one day:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+    <TextView
+        android:id="@+id/tv_selectDate"
+        android:layout_marginLeft="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select the date"
+        android:layout_below="@+id/tvdd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <Button
+        android:id="@+id/btn_pie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/tv_selectDate"
+        android:text="Search" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/piechart"
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:layout_below="@+id/btn_pie"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="9dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_selectDate2"
+        android:text="Period Report"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_below="@+id/piechart"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fromDate"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/tv_selectDate2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:text="From: Click to select the date"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/toDate"
+        android:layout_below="@id/fromDate"
+        android:layout_marginLeft="30dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:text="To: Click to select the date"/>
+
+    <Button
+        android:id="@+id/btn_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toDate"
+        android:layout_marginLeft="50dp"
+        android:text="Search" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barchart"
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:layout_below="@+id/btn_bar"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="9dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        android:visibility="gone"/>
+</RelativeLayout>

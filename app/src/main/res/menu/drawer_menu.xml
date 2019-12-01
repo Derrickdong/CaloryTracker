@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/dhome"
+            android:title="HOME"/>
+
+        <item
+            android:id="@+id/dsearchFood"
+            android:title="Search Food"/>
+
+        <item
+            android:id="@+id/ddailyDiet"
+            android:title="Daily Diet"/>
+
+        <item
+            android:id="@+id/step_counter"
+            android:title="Step Counter"/>
+
+        <item
+            android:id="@+id/report"
+            android:title="Reports"/>
+
+        <item
+            android:title="Maps"
+            android:id="@+id/dMap"/>
+
+    </group>
+
+</menu>
