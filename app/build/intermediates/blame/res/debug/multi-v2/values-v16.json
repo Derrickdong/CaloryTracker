@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\xdon0010\\Desktop\\Mobile\\applications\\CaloryTracker\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\36c78f02f02149695c65262b9be010db\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\2ba769a5c0748f01e9ef5d2f0eeee84a\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\7d41f7a8494d2f429b1361f138433d5d\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

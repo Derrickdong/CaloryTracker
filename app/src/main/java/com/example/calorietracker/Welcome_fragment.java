@@ -1,6 +1,7 @@
 package com.example.calorietracker;
 
 import android.app.Fragment;
+import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -58,6 +59,8 @@ public class Welcome_fragment extends Fragment {
 
         Bundle bundle = getActivity().getIntent().getExtras();
         String username = bundle.getString("username");
+
+        db = Room.databaseBuilder(getActivity().getApplicationContext(), ReportDatabase.class, "ReportDatabase").fallbackToDestructiveMigration().build();
 
         InsertDatabase insertDatabase = new InsertDatabase();
         ReadDatabase readDatabase = new ReadDatabase();
