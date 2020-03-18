@@ -1,8 +1,10 @@
 package com.example.calorietracker;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.arch.persistence.room.Room;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -11,33 +13,37 @@ import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.SQLiteDatabase.ReportC;
 import com.example.SQLiteDatabase.ReportDatabase;
-import com.example.entities.Report;
+import com.example.entities.Users;
+import com.example.entities.WelcomeListItem;
+import com.example.tools.WelcomeListAdaptor;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class Welcome_fragment extends Fragment {
+public class Welcome_fragment extends Fragment implements AdapterView.OnItemClickListener {
     View vWelcome;
+    List<WelcomeListItem> list;
+    WelcomeListAdaptor adaptor;
+    Users loginUser;
     ReportDatabase db = null;
-    TextView tv_goals = null;
-    EditText et_goal;
-    TextView tv_steps;
-    TextView tv_calorieConsumed;
-    TextView tv_calorieBurned;
-    Button btn_reset;
     TextClock textClock;
+    ListView lv_welcome;
+    String stepStr;
+    WelcomeListItem goal;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
@@ -48,124 +54,113 @@ public class Welcome_fragment extends Fragment {
         TextView time = (TextView) vWelcome.findViewById(R.id.tv_time);
         textClock = (TextClock) vWelcome.findViewById(R.id.tc_clock);
         TextView user = (TextView) vWelcome.findViewById(R.id.tv_user);
-        tv_goals = (TextView) vWelcome.findViewById(R.id.tv_goal);
-        et_goal = (EditText) vWelcome.findViewById(R.id.et_goal);
-        tv_steps = (TextView) vWelcome.findViewById(R.id.tv_steps);
-        tv_calorieBurned = (TextView) vWelcome.findViewById(R.id.tv_calorie_burned);
-        tv_calorieConsumed = (TextView) vWelcome.findViewById(R.id.tv_calorie_consumed);
-        btn_reset = (Button) vWelcome.findViewById(R.id.btn_reset);
+
+        list = new ArrayList<>();
+
+        lv_welcome = (ListView) vWelcome.findViewById(R.id.lv_welcome);
 
         time.setText("Time :     " + textClock.getText());
 
         Bundle bundle = getActivity().getIntent().getExtras();
-        String username = bundle.getString("username");
+        loginUser = (Users)bundle.getSerializable("user");
 
         db = Room.databaseBuilder(getActivity().getApplicationContext(), ReportDatabase.class, "ReportDatabase").fallbackToDestructiveMigration().build();
-
-        InsertDatabase insertDatabase = new InsertDatabase();
         ReadDatabase readDatabase = new ReadDatabase();
         readDatabase.execute();
 
-        CredentialAsyncTask credentialAsyncTask = new CredentialAsyncTask();
         String firstName = "";
-        try {
-            firstName = credentialAsyncTask.execute("findNameByUsername", username).get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        firstName = loginUser.getName();
         user.setText("Welcome, " + firstName);
 
-        SharedPreferences spMyUnits = getActivity().getSharedPreferences("goal",
-                Context.MODE_PRIVATE);
-        String message = spMyUnits.getString("goal", null);
-        if (message == null || message.isEmpty()) {
-            tv_goals.setText("You have not set your goal today");
-            et_goal.setVisibility(View.VISIBLE);
-        } else {
-            et_goal.setVisibility(View.GONE);
-            tv_goals.setText("Your goal today is: " + message + " calories");
-        }
-        btn_reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tv_goals.setVisibility(View.GONE);
-                et_goal.setVisibility(View.VISIBLE);
-                if (!et_goal.getText().toString().matches("^[0-9]+$")) {
-                    Context context = getActivity().getApplicationContext();
-                    CharSequence text = "The goal must be numbers";
-                    int duration = Toast.LENGTH_SHORT;
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-                } else {
-                    et_goal.setVisibility(View.GONE);
-                    String setGoal = et_goal.getText().toString();
-                    SharedPreferences sharedPreferences = getActivity().getApplicationContext().getSharedPreferences(
-                            "goal", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor spEditor = sharedPreferences.edit();
-                    spEditor.putString("goal", setGoal);
-                    spEditor.apply();
-                    tv_goals.setText("Your goal today is to burn " + setGoal + " calories");
-                    tv_goals.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-
         SharedPreferences spSteps = getActivity().getSharedPreferences("steps", Context.MODE_PRIVATE);
-        String stepStr = spSteps.getString("steps", null);
+        stepStr = spSteps.getString("steps", null);
         if (stepStr == null) {
             stepStr = "0";
         }
-        tv_steps.setText("Total steps today: " + stepStr + "\n" + "You could record your steps taken for today in Step Counter.");
 
         ConsumptionAsyncTask consumptionAsyncTask = new ConsumptionAsyncTask();
-        CredentialAsyncTask1 credentialAsyncTask1 = new CredentialAsyncTask1();
         String userid = "";
-        try {
-            userid = credentialAsyncTask1.execute("findUseridByUsername", username).get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        userid = loginUser.getUserid().toString();
         Date date = Calendar.getInstance().getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
         String today = sdf.format(date);
         consumptionAsyncTask.execute("totalCaloriesConsumedForTheDay", userid, today + "/");
 
         UserAsyncTask userAsyncTask = new UserAsyncTask();
-        String result = "";
         try {
-            result = userAsyncTask.execute("caculateCaloriesBurnedPerStep", userid).get();
+            String s = userAsyncTask.execute("caculateCaloriesBurnedPerStep", userid).get();
+            Double totalCalorieBurned = Double.parseDouble(s) * Integer.parseInt(stepStr);
+            DecimalFormat df = new DecimalFormat("0.00");
+            WelcomeListItem burned = new WelcomeListItem("Total Burned: ", df.format(totalCalorieBurned));
+            list.add(burned);
+            setItems();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Double totalCalorieBurned = Double.parseDouble(result) * Integer.parseInt(stepStr);
-        DecimalFormat df = new DecimalFormat("0.00");
-        tv_calorieBurned.setText("You have burned " + df.format(totalCalorieBurned) + " calories today.");
+        adaptor = new WelcomeListAdaptor(getActivity().getApplicationContext(), list);
+        lv_welcome.setAdapter(adaptor);
+        lv_welcome.setOnItemClickListener(this);
 
         return vWelcome;
     }
 
-    /*
-        All the AsyncTask classes tried to get information from the server
-     */
-    private class CredentialAsyncTask extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... params) {
-            return RestClient.findWithStringParams(params[0], "credential", params[1]);
+    private void setItems() {
+        goal = new WelcomeListItem("Your goal: ", "");
+        SharedPreferences spMyUnits = getActivity().getSharedPreferences("goal",
+                Context.MODE_PRIVATE);
+        String message = spMyUnits.getString("goal", null);
+        if (message == null || message.isEmpty()) {
+            goal.setTitle("Please set a goal for today");
+        } else {
+            goal.setData(message);
         }
+        list.add(goal);
+
+        SharedPreferences spSteps = getActivity().getSharedPreferences("steps", Context.MODE_PRIVATE);
+        String stepStr = spSteps.getString("steps", null);
+        if (stepStr == null) {
+            stepStr = "0";
+        }
+        WelcomeListItem steps = new WelcomeListItem("Your steps today: ", stepStr);
+        list.add(steps);
     }
 
-    private class CredentialAsyncTask1 extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... params) {
-            return RestClient.findWithStringParamReturnPlainText(params[0], "credential", params[1]);
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (position == 1){
+            final EditText editText = new EditText(getActivity());
+            new AlertDialog.Builder(getActivity())
+                    .setTitle("Please insert your new goal")
+                    .setView(editText)
+                    .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (!editText.getText().toString().matches("^[0-9]+$")) {
+                                Context context = getActivity().getApplicationContext();
+                                CharSequence text = "The goal must be numbers";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                String setGoal = editText.getText().toString();
+                                SharedPreferences sharedPreferences = getActivity().getApplicationContext().getSharedPreferences(
+                                        "goal", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor spEditor = sharedPreferences.edit();
+                                spEditor.putString("goal", setGoal);
+                                spEditor.apply();
+                                goal.setData(setGoal);
+                            }
+                            adaptor.notifyDataSetChanged();
+                        }
+                    }).setNegativeButton("Cancel",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).show();
         }
     }
 
@@ -178,7 +173,8 @@ public class Welcome_fragment extends Fragment {
 
         @Override
         protected void onPostExecute(String s) {
-            tv_calorieConsumed.setText("You have consumed " + s + " calories today.");
+            WelcomeListItem consumption = new WelcomeListItem("Total Concume: ", s);
+            list.add(consumption);
         }
     }
 
@@ -190,16 +186,6 @@ public class Welcome_fragment extends Fragment {
         }
     }
 
-    private class InsertDatabase extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... params) {
-            ReportC report = new ReportC();
-            report.setSetcaloriegoal(Integer.parseInt(params[0]));
-            return params[0];
-        }
-    }
-
     private class ReadDatabase extends AsyncTask<Void, Void, List<ReportC>> {
 
         @Override
@@ -207,7 +193,5 @@ public class Welcome_fragment extends Fragment {
             List<ReportC> reports = db.reportDao().getAll();
             return reports;
         }
-
-
     }
 }

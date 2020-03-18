@@ -1,77 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Welcome_fragment">
 
-    <ImageView
-        android:id="@+id/fitness_image"
+    <RelativeLayout
+        android:id="@+id/rl_welcome"
         android:layout_width="match_parent"
-        android:layout_height="245dp"
-        android:layout_below="@+id/tv_welcome"
-        android:src="@drawable/fitness"/>
+        android:layout_height="239dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fitness" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/cardview_light_background"
+            android:textStyle="bold" />
+
+        <TextClock
+            android:id="@+id/tc_clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_time"
+            android:textColor="@color/cardview_light_background"
+            android:textStyle="bold"
+            tools:targetApi="jelly_bean_mr1" />
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_time"
+            android:layout_marginTop="180dp"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="276dp"
+        android:layout_below="@+id/rl_welcome"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_time"
-        android:layout_below="@+id/fitness_image" />
-
-    <TextClock
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tc_clock"
-        tools:targetApi="jelly_bean_mr1"
-        android:layout_toRightOf="@+id/tv_time"
-        android:layout_below="@+id/fitness_image"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_time"
-        android:id="@+id/tv_user" />
-
-    <TextView
-        android:id="@+id/tv_goal"
-        android:layout_width="222dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_user"
-        android:layout_marginTop="0dp" />
-
-    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_goal"
-        android:visibility="gone"
-        android:hint="Your Goal"
-        android:layout_below="@+id/tv_user"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_reset"
-        android:layout_below="@id/et_goal"
-        android:text="Reset Goal"
-        android:layout_toRightOf="@id/tv_goal"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_steps"
-        android:layout_below="@+id/btn_reset"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_calorie_consumed"
-        android:layout_below="@+id/tv_steps"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_calorie_burned"
-        android:layout_below="@+id/tv_calorie_consumed"/>
+        android:text="You can tap to set the goal"
+        android:layout_below="@+id/lv_welcome"/>
 
 </RelativeLayout>

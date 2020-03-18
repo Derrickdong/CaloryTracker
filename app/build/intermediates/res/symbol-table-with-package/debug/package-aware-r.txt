@@ -1151,7 +1151,6 @@ id btn_bar
 id btn_consume
 id btn_nextDay
 id btn_pie
-id btn_reset
 id btn_search
 id buttonPanel
 id cancel_action
@@ -1198,7 +1197,6 @@ id et_address
 id et_email
 id et_firstName
 id et_foodname
-id et_goal
 id et_height
 id et_lastName
 id et_password
@@ -1216,7 +1214,6 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
-id fitness_image
 id fixed
 id food_image
 id forever
@@ -1245,6 +1242,7 @@ id line1
 id line3
 id listMode
 id list_item
+id lv_welcome
 id male_btn
 id mapView
 id masked
@@ -1281,6 +1279,7 @@ id report
 id right
 id right_icon
 id right_side
+id rl_welcome
 id satellite
 id save_image_matrix
 id save_non_transition_alpha
@@ -1366,21 +1365,19 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id tv_addFood
-id tv_calorie_burned
-id tv_calorie_consumed
 id tv_category
 id tv_foodNutrition
 id tv_fooddesc
 id tv_foods
-id tv_goal
 id tv_level
+id tv_number
 id tv_records
 id tv_searchedFood
 id tv_selectDate
 id tv_selectDate2
-id tv_steps
 id tv_text
 id tv_time
+id tv_title
 id tv_user
 id tv_walkMore
 id tv_welcome
@@ -1467,6 +1464,7 @@ layout design_text_input_password_icon
 layout fragment_maps
 layout fragment_search_food
 layout fragment_stepcounter
+layout item_lv_welcome
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout nav_header_navigation_drawer

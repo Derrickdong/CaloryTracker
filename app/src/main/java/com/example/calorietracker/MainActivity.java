@@ -10,13 +10,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.entities.Users;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.security.MessageDigest;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
     EditText etUsername;
     EditText etPassword;
     Button btn;
+    Users user = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, NavigationDrawer.class);
                         Bundle bundle = new Bundle();
                         bundle.putString("username", username);
+                        bundle.putSerializable("user", user);
                         intent.putExtras(bundle);
                         startActivity(intent);
                     }
@@ -92,14 +104,18 @@ public class MainActivity extends AppCompatActivity {
         String result = null;
         try {
             result = credentialAsyncTask.get();
+            if (result.equals("[]")){
+                return false;
+            }else{
+                UserAsyncTask userAsyncTask = new UserAsyncTask();
+                userAsyncTask.execute(result);
+            }
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (result.equals("[]")){
-            return false;
-        }
+
         return true;
     }
 
@@ -119,6 +135,36 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    private class UserAsyncTask extends AsyncTask<String, Void, Users> {
+
+        @Override
+        protected Users doInBackground(String... strings) {
+            try {
+                JSONArray jsonArray = new JSONArray(strings[0]);
+                JSONObject userJson = jsonArray.getJSONObject(0).getJSONObject("userid");
+                int id = userJson.getInt("userid");
+                String name = userJson.getString("name");
+                String surname = userJson.getString("surname");
+                String email = userJson.getString("email");
+                DateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+                Date dob = format.parse(userJson.getString("dob"));
+                Integer height = userJson.getInt("height");
+                Integer weight = userJson.getInt("weight");
+                Character gender = userJson.getString("gender").charAt(0);
+                String address = userJson.getString("address");
+                String postcode = userJson.getString("postcode");
+                Integer levelofactivity = userJson.getInt("levelofactivity");
+                Integer stepspermile = userJson.getInt("stepspermile");
+                user = new Users(id, name, surname, email, dob, height, weight, gender, address, postcode, levelofactivity, stepspermile);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            return user;
+        }
     }
 
     private class CredentialAsyncTask extends AsyncTask<String, Void, String>{

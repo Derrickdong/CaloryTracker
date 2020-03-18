@@ -12,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.entities.Users;
+
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -23,6 +25,7 @@ public class NavigationDrawer extends AppCompatActivity
         setContentView(R.layout.activity_navigation_drawer);
 
         Bundle bundle = getIntent().getExtras();
+        System.out.println((Users)bundle.getSerializable("user"));
         username = bundle.getString("username");
         bundle.putString("username", username);
 
