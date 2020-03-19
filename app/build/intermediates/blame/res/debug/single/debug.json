@@ -124,12 +124,12 @@
         "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_fab_hide_motion_spec.xml.flat",
-        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\8963033aad89c650bc89b26b747253bd\\res\\animator\\mtrl_fab_hide_motion_spec.xml"
-    },
-    {
         "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background.jpg.flat",
         "source": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\src\\main\\res\\drawable\\background.jpg"
+    },
+    {
+        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_fab_hide_motion_spec.xml.flat",
+        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\8963033aad89c650bc89b26b747253bd\\res\\animator\\mtrl_fab_hide_motion_spec.xml"
     },
     {
         "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -196,20 +196,20 @@
         "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-xxhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-xxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
     },
     {
-        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_black_36dp.png.flat",
-        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-xhdpi-v4\\abc_ic_star_black_36dp.png"
+        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-xxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tooltip_frame_dark.xml.flat",
         "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable\\tooltip_frame_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-xhdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
         "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable_side_nav_bar.xml.flat",
@@ -280,36 +280,36 @@
         "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
-        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_dialog_material_background.xml.flat",
-        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-v21\\abc_dialog_material_background.xml"
-    },
-    {
         "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_dialog_material_background.xml.flat",
+        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-v21\\abc_dialog_material_background.xml"
     },
     {
         "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action_tombstone.xml.flat",
         "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\2ba769a5c0748f01e9ef5d2f0eeee84a\\res\\layout-v21\\notification_action_tombstone.xml"
     },
     {
-        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
-        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png"
-    },
-    {
         "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\interpolator-v21_mtrl_linear_out_slow_in.xml.flat",
         "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\8963033aad89c650bc89b26b747253bd\\res\\interpolator-v21\\mtrl_linear_out_slow_in.xml"
     },
     {
-        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_48dp.png.flat",
-        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
+        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_btn_unelevated_state_list_anim.xml.flat",
+        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\8963033aad89c650bc89b26b747253bd\\res\\animator\\mtrl_btn_unelevated_state_list_anim.xml"
     },
     {
         "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_menu_share.xml.flat",
         "source": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\src\\main\\res\\drawable-v21\\ic_menu_share.xml"
     },
     {
-        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_btn_unelevated_state_list_anim.xml.flat",
-        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\8963033aad89c650bc89b26b747253bd\\res\\animator\\mtrl_btn_unelevated_state_list_anim.xml"
+        "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "C:\\Users\\xdon0010\\.gradle\\caches\\transforms-2\\files-2.1\\dab93d5e48e6532a7e0366c4453e9e61\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
     },
     {
         "merged": "C:\\Users\\xdon0010\\Desktop\\CalTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",

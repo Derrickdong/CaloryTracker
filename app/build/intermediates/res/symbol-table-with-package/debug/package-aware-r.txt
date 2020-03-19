@@ -1139,6 +1139,7 @@ id all
 id always
 id async
 id auto
+id auto_tv
 id barchart
 id barrier
 id beginning
@@ -1187,7 +1188,6 @@ id direct
 id disableHome
 id drawer_layout
 id dsearchFood
-id editText
 id edit_query
 id end
 id end_padder
@@ -1290,6 +1290,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id search
 id search_badge
 id search_bar
 id search_btn

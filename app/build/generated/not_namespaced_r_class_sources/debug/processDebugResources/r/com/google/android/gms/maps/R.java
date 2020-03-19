@@ -43,7 +43,7 @@ public final class R {
         public static final int none = 0x7f080097;
         public static final int normal = 0x7f080098;
         public static final int satellite = 0x7f0800af;
-        public static final int terrain = 0x7f0800ea;
+        public static final int terrain = 0x7f0800eb;
     }
     public static final class styleable {
         private styleable() {}
